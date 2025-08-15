@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Quiz & Assignment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* dark overlay */
+  z-index: -1;
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  background: url('14.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+}
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to bottom right, #000000, #1a1a1a);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR STYLES */
+    nav.navbar {
+  background-color: #111;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: flex-end; /* Moves links to right */
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      background-color: #00ffe0;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #00c7aa;
+    }
+
+    .nav-links a.active {
+      background-color: #fff700;
+      color: #000;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffe0;
+      font-size: 2.5rem;
+      margin: 40px 0 20px;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 0 10%;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 255, 224, 0.2);
+      padding: 25px 30px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 0.7s ease forwards;
+      animation-delay: var(--delay);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(0, 255, 224, 0.4);
+    }
+
+    .card h2 {
+      color: #fff700;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      display: inline-block;
+      text-decoration: none;
+      background: #00ffe0;
+      color: #000;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .card a:hover {
+      background: #00c7aa;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About COA</a>
+      <a href="modules.html">Modules</a>
+      <a href="glossary.html" class="active">Glossary</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <h1>Quizzes & Assignments</h1>
+
+  <div class="card-container">
+    <div class="card" style="--delay: 0.1s;">
+      <h2>Quiz 1</h2>
+      <p>Test your understanding of Number Systems and Boolean Algebra.</p>
+      <a href="quiz1.html">Take Quiz</a>
+    </div>
+
+    <div class="card" style="--delay: 0.2s;">
+      <h2>Quiz 2</h2>
+      <p>Check your knowledge on ALU design and operations.</p>
+      <a href="quiz2.html">Take Quiz</a>
+    </div>
+
+    <div class="card" style="--delay: 0.3s;">
+      <h2>Quiz 3</h2>
+      <p>Evaluate your grasp of CPU architecture and instruction cycle.</p>
+      <a href="quiz3.html">Take Quiz</a>
+    </div>
+
+    <div class="card" style="--delay: 0.4s;">
+      <h2>Assignment 1</h2>
+      <p>Solve binary arithmetic and logic gate exercises.</p>
+      <a href="assignment1.pdf" target="_blank">Download PDF</a>
+    </div>
+
+    <div class="card" style="--delay: 0.5s;">
+      <h2>Assignment 2</h2>
+      <p>Design a simple ALU using logic gates and truth tables.</p>
+      <a href="assignment2.pdf" target="_blank">Download PDF</a>
+    </div>
+
+    <div class="card" style="--delay: 0.6s;">
+      <h2>Assignment 3</h2>
+      <p>Write short notes on memory hierarchy and cache organization.</p>
+      <a href="assignment3.pdf" target="_blank">Download PDF</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - COA World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: url('14.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      background: linear-gradient(to bottom right, #000000, #1a1a1a);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR STYLES */
+    nav.navbar {
+      background-color: #111;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #00ffe0;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      background-color: #00ffe0;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #00c7aa;
+    }
+
+    .nav-links a.active {
+      background-color: #fff700;
+      color: #000;
+    }
+
+    /* Fix navbar responsiveness */
+    @media (max-width: 480px) {
+      nav.navbar {
+        padding: 15px 5%;
+      }
+      
+      .nav-links a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffe0;
+      font-size: 2.5rem;
+      margin: 40px 0 20px;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .contact-info {
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 255, 224, 0.2);
+      padding: 40px;
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: slideInLeft 0.8s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .contact-form {
+      background: #111;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 255, 224, 0.2);
+      padding: 40px;
+      opacity: 0;
+      transform: translateX(40px);
+      animation: slideInRight 0.8s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .contact-info h2, .contact-form h2 {
+      color: #fff700;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(0, 255, 224, 0.1);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      background: rgba(0, 255, 224, 0.2);
+      transform: translateX(10px);
+    }
+
+    .info-icon {
+      width: 24px;
+      height: 24px;
+      background: #00ffe0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .info-text {
+      flex: 1;
+    }
+
+    .info-text h3 {
+      color: #00ffe0;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .info-text p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #00ffe0;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 15px;
+      background: #222;
+      border: 2px solid #333;
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #00ffe0;
+      box-shadow: 0 0 10px rgba(0, 255, 224, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #00ffe0, #00c7aa);
+      color: #000;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(45deg, #00c7aa, #00ffe0);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 255, 224, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .success-message {
+      background: rgba(0, 255, 0, 0.1);
+      border: 2px solid #00ff00;
+      color: #00ff00;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .office-hours {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(255, 247, 0, 0.1);
+      border-radius: 10px;
+      border: 2px solid #fff700;
+    }
+
+    .office-hours h3 {
+      color: #fff700;
+      margin-bottom: 15px;
+    }
+
+    .office-hours p {
+      color: #ccc;
+      margin-bottom: 8px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 5%;
+      }
+
+      .contact-info,
+      .contact-form {
+        animation: fadeUp 0.8s ease forwards;
+        transform: translateY(40px);
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Computer Organization and Architecture</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About COA</a>
+      <a href="modules.html">Modules</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <h1>Contact Us</h1>
+
+  <div class="contact-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h2>Get In Touch</h2>
+      
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text">
+          <h3>Address</h3>
+          <p>Computer Science Department<br>
+          University Campus, Building A<br>
+          Secunderabad, Telangana 500003</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div class="info-text">
+          <h3>Email</h3>
+          <p>coa.department@university.edu<br>
+          support@coaworld.edu</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-text">
+          <h3>Phone</h3>
+          <p>+91 40 1234 5678<br>
+          +91 98765 43210 (Mobile)</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">🌐</div>
+        <div class="info-text">
+          <h3>Website</h3>
+          <p>www.coaworld.edu<br>
+          www.university.edu/coa</p>
+        </div>
+      </div>
+
+      <div class="office-hours">
+        <h3>Office Hours</h3>
+        <p><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</p>
+        <p><strong>Saturday:</strong> 10:00 AM - 2:00 PM</p>
+        <p><strong>Sunday:</strong> Closed</p>
+        <p><strong>Lab Hours:</strong> Monday - Saturday, 8:00 AM - 6:00 PM</p>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Send us a Message</h2>
+      
+      <div class="success-message" id="successMessage">
+        ✅ Thank you! Your message has been sent successfully. We'll get back to you soon.
+      </div>
+
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="course">Course Information</option>
+            <option value="assignment">Assignment Help</option>
+            <option value="technical">Technical Support</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" placeholder="Please describe your inquiry or question in detail..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Basic validation
+      if (!data.name || !data.email || !data.subject || !data.message) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      
+      // Simulate form submission
+      const submitBtn = document.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+      
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      // Simulate API call delay
+      setTimeout(() => {
+        // Show success message
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // Reset form
+        this.reset();
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+        
+        // Log form data (in real implementation, send to server)
+        console.log('Form submitted:', data);
+        
+      }, 1500);
+    });
+
+    // Add smooth scrolling and form field animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add focus/blur animations to form fields
+      const formFields = document.querySelectorAll('input, textarea, select');
+      
+      formFields.forEach(field => {
+        field.addEventListener('focus', function() {
+          this.parentElement.style.transform = 'translateY(-2px)';
+          this.parentElement.style.transition = 'transform 0.3s ease';
+        });
+        
+        field.addEventListener('blur', function() {
+          this.parentElement.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Add hover effects to info items
+      const infoItems = document.querySelectorAll('.info-item');
+      infoItems.forEach((item, index) => {
+        item.style.animationDelay = `${0.1 * index}s`;
+        
+        item.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateX(10px) scale(1.02)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateX(0) scale(1)';
+        });
+      });
+    });
+
+    // Add typing effect for placeholder
+    function typeWriter(element, text, speed = 50) {
+      let i = 0;
+      element.placeholder = '';
+      
+      function type() {
+        if (i < text.length) {
+          element.placeholder += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    // Initialize typing effect when page loads
+    window.addEventListener('load', function() {
+      const messageField = document.getElementById('message');
+      setTimeout(() => {
+        typeWriter(messageField, 'Please describe your inquiry or question in detail...', 30);
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Modules</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('your-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    nav.navbar {
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+    }
+
+    .logo {
+      color: #00ffb7;
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      background: #00ffe0;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: #00c7aa;
+    }
+
+    .nav-links a.active {
+      background: #fff700;
+      color: #000;
+    }
+
+    .modules-section {
+      padding: 40px 10%;
+      text-align: center;
+    }
+
+    .modules-section h2 {
+      font-size: 2.2rem;
+      color: #00ffe0;
+      margin-bottom: 40px;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .module-card {
+      position: relative;
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      align-items: flex-end;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 25px rgba(0, 255, 224, 0.2);
+      background-blend-mode: overlay;
+    }
+
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 255, 224, 0.4);
+    }
+
+    .module-content {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 20px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .module-content h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #fff700;
+    }
+
+    .module-content p {
+      margin: 5px 0 0;
+      font-size: 0.95rem;
+      color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">COA Modules</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About COA</a></li>
+      <li><a href="modules.html" class="active">Modules</a></li>
+      <li><a href="glossary.html">Glossary</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="modules-section">
+    <h2>Explore COA Modules</h2>
+    <div class="module-grid">
+      <!-- Module Cards with gradient overlay -->
+      <a href="module1.html" class="module-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('a.jpeg');">
+        <div class="module-content">
+          <h3>Module 1</h3>
+          <p>Computer Evolution & Arithmetic</p>
+        </div>
+      </a>
+
+      <a href="module2.html" class="module-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('b.jpg');">
+        <div class="module-content">
+          <h3>Module 2</h3>
+          <p>ALU</p>
+        </div>
+      </a>
+
+      <a href="module3.html" class="module-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('c.jpeg');">
+        <div class="module-content">
+          <h3>Module 3</h3>
+          <p>I/O Organization</p>
+        </div>
+      </a>
+
+      <a href="module4.html" class="module-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('d.jpeg');">
+        <div class="module-content">
+          <h3>Module 4</h3>
+          <p>The Central Processing Unit</p>
+        </div>
+      </a>
+
+      <a href="module5.html" class="module-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('e.jpeg');">
+        <div class="module-content">
+          <h3>Module 5</h3>
+          <p>Memory Organization</p>
+        </div>
+      </a>
+
+      <a href="module6.html" class="module-card" style="background-image: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('f.jpeg');">
+        <div class="module-content">
+          <h3>Module 6</h3>
+          <p>Parallel Organization</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>
+
